@@ -27,16 +27,16 @@ This application  was created using Django and Pandas library, .   UNDER CONSTRU
 
 
 ## Homepage - <b style='color:red'>Analytics Side</b>
+<div><b>Counters </b> display the total of sector,companies, industries, revenue, profit, and employees in the system  </div>
 
+<div><b>Charts</b> The Data is grouping by sectors to display the total of revenues,profits and employees for each sector </div>
 
 ![Alt text](/images/p1.png "Homagepe" )
 
 
 
 
-  <div><b>Counters </b> display the total of sector,companies, industries, revenue, profit, and employees in the system  </div>
 
-<div><b>Charts</b> The Data is grouping by sectors to display the total of revenues,profits and employees for each sector </div>
 
 
 
