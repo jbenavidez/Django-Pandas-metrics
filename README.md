@@ -26,7 +26,7 @@ This application  was created using Django and Pandas library, .   UNDER CONSTRU
 </ul>
 
 
-## Application UI - (Reeact.js)
+## Application UI - <b>Homepage </b>
 
 
 ![Alt text](/images/p1.png "Homagepe" )
