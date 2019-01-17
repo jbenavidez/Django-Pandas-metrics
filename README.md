@@ -21,7 +21,7 @@ This application  was created using Django and Pandas library, .   UNDER CONSTRU
  <li>Python Pandas Library </li>
  <li>Django </li>
   <li>Django Rest Framework </li>
-  <li>AmchartJs</li>
+  <li>AmchartJS</li>
 
 </ul>
 
@@ -32,18 +32,14 @@ This application  was created using Django and Pandas library, .   UNDER CONSTRU
 ![Alt text](/images/p1.png "Homagepe" )
 
 
-<ul>
-
-<li><b>Counters</b> This display the total of sector,companies, industries, revenue, profit, and employees in the system</i>  <li>
-
-</li>
- <li>
-<b>Charts</b> The Data is grouping by sectors to display the total of revenues,profits and employees for each sector
-
- </li>
 
 
-</ul>
+  <div><b>Counters </b> display the total of sector,companies, industries, revenue, profit, and employees in the system  </div>
+
+<div><b>Charts</b> The Data is grouping by sectors to display the total of revenues,profits and employees for each sector </div>
+
+
+
 
 
 
