@@ -1,4 +1,4 @@
-# Fortune 1000 Megazine Metrics
+# Fortune 1000 Megazine Metrics Application
 This application  was created using Django and Pandas library, .   UNDER CONSTRUCTIONS
 
 
