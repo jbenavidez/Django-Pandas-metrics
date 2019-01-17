@@ -1,4 +1,4 @@
-# Django-React Blogs
+# Fortune 1000 Megazine Metrics
 This application  was created using Django and Pandas library, .   UNDER CONSTRUCTIONS
 
 
