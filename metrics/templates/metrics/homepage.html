@@ -1,0 +1,391 @@
+{% extends "default.html" %}
+
+
+
+
+{% block layout_content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<style>
+
+  body {
+
+
+}
+
+
+  .isResizable {
+    background-color: #ffffff;
+    margin: 0px auto;
+    padding: 5px;
+    border: 1px solid #d8d8d8;
+    overflow: hidden;
+    /* Not usable in IE */
+    /* resize: both; */
+
+  }
+
+  .custom_container {
+    border-radius: 5px;
+  border: 1px solid #e6ecf5;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.175);
+  background:white;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#chartdiv {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 11px;
+}
+
+
+.card-counter{
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 100px;
+    border-radius: 5px;
+    transition: .3s linear all;
+  }
+
+  .card-counter:hover{
+    box-shadow: 4px 4px 20px #DADADA;
+    transition: .3s linear all;
+  }
+
+  .card-counter.primary{
+    background-color: #007bff;
+    color: #FFF;
+  }
+
+  .card-counter.danger{
+    background-color: #ef5350;
+    color: #FFF;
+  }
+
+  .card-counter.success{
+    background-color: #66bb6a;
+    color: #FFF;
+  }
+
+  .card-counter.info{
+    background-color: #26c6da;
+    color: #FFF;
+  }
+
+  .card-counter i{
+    font-size: 5em;
+    opacity: 0.2;
+  }
+
+  .card-counter .count-numbers{
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    font-size: 32px;
+    display: block;
+  }
+
+  .card-counter .count-name{
+    position: absolute;
+    right: 35px;
+    top: 65px;
+    font-style: italic;
+    text-transform: capitalize;
+    opacity: 0.5;
+    display: block;
+    font-size: 18px;
+  }
+
+  </style>
+
+
+  <div class=" " style='margin-bottom:10%;'>
+     <div class=" ">
+     <div class="col-md-2">
+       <div class="card-counter primary custom_container">
+         <i class="fa fa-code-fork"></i>
+         <span class="count-numbers count" id='sector_counter'> 0</span>
+         <span class="count-name">Sectors</span>
+       </div>
+     </div>
+
+     <div class="col-md-2">
+       <div class="card-counter info custom_container">
+         <i class="fa fa-building"></i>
+         <span class="count-numbers count" id="company_counter">0</span>
+         <span class="count-name">Companies</span>
+       </div>
+     </div>
+<div class="col-md-2">
+       <div class="card-counter success custom_container">
+         <i class="fa fa-industry "> </i>
+         <span class="count-numbers counter" id="industry_counter"> 0</span>
+         <span class="count-name">Industries</span>
+       </div>
+     </div>
+<div class="col-md-2">
+       <div class="card-counter danger custom_container">
+         <i class="fa fa-ticket"></i>
+         <span class="count-numbers counter" id="Revenues_counter">0</span>
+         <span class="count-name">Revenues</span>
+       </div>
+     </div>
+<div class="col-md-2">
+       <div class="card-counter warning custom_container" style="background-color: #f0ad4e; color: white;">
+         <i class="fa fa-dollar"></i>
+         <span class="count-numbers counter" id="Profits_counter">0</span>
+         <span class="count-name">Profits</span>
+       </div>
+     </div>
+
+    
+     <div class="col-md-2">
+       <div class="card-counter info custom_container ">
+         <i class="fa fa-users"></i>
+         <span class="count-numbers counter" id="Employees_counter">0</span>
+          <span class="count-name">Employees</span>
+         
+       </div>
+     </div>
+      
+   </div>
+ </div>
+
+<div class=" ">
+  <div class="col-md-4 " >
+     <div class=" custom_container" >
+        <div class="col-md-12" style='border-bottom: 1px solid #e6ecf5;'>
+          <h4 style='margin: 0; margin-top: 10px;color:#d0343a;     margin-bottom: 10px;text-align:center;'>Revenues </h4>
+          </div>
+       <div  id="chartdiv" style="width: 100%; height: 362px;" ></div>
+       </div>
+    </div>
+
+    <div class="col-md-4 " >
+       <div class=" custom_container" >
+          <div class="col-md-12" style='border-bottom: 1px solid #e6ecf5;'>
+            <h4 style='margin: 0; margin-top: 10px;color:#d0343a;     margin-bottom: 10px;text-align:center;'>Profits  </h4>
+            </div>
+         <div  id="profitdiv" style="width: 100%; height: 362px;" ></div>
+         </div>
+      </div>
+      <div class="col-md-4 " >
+         <div class=" custom_container" >
+            <div class="col-md-12" style='border-bottom: 1px solid #e6ecf5;'>
+              <h4 style='margin: 0; margin-top: 10px;color:#d0343a;     margin-bottom: 10px;text-align:center;'>Employees  </h4>
+              </div>
+           <div  id="employeesdiv" style="width: 100%; height: 362px;" ></div>
+           </div>
+        </div>
+</div>
+
+
+{% endblock %}
+
+{% block js_content %}
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<script type="text/javascript">
+  var theEndPoint = 'api/data/homepage/';
+
+  var revenueData = [];
+  var profitsData = [];
+
+var emptData = [];
+var counterSector = 0;
+var counterCompany = 0;
+var counterRevenue = 0;
+var counterPRofict = 0;
+var counterEmp = 0;
+var counterindutrity = 0;
+  $.ajax({
+       method:'GET',
+       url:theEndPoint,
+       success:function(data){
+          console.log('the data' , data.total_sectors)
+         revenueData = data.Revenue;
+         profitsData =data.Profits;
+         emptData =data.Employees;
+          //set counter 
+
+           counterSector = data.total_sectors;
+           counterCompany = data.total_companies;
+           counterRevenue = data.total_revenue;
+           counterPRofict = data.total_profits;
+           counterEmp = data.total_empt;
+           counterindutrity = data.total_industries;
+
+          setRevenueChart()
+          setProfitsChart()
+          setEmptChart()
+          setCounter()
+       },
+       error:function(erro_data){
+          console.log('the error', erro_data)
+        }
+  })
+
+    function setCounter(){
+      
+      var sectorCounter = document.getElementById('sector_counter');
+   
+      sectorCounter.innerHTML = numberWithCommas(counterSector) ;
+
+ var companyCounter = document.getElementById('company_counter');
+     
+      companyCounter.innerHTML = numberWithCommas(counterCompany) ;
+
+var industryCounter = document.getElementById('industry_counter');
+     
+      industryCounter.innerHTML =  numberWithCommas(counterindutrity) ;
+
+var revenueCounter = document.getElementById('Revenues_counter');
+     
+      revenueCounter.innerHTML = numberWithCommas(counterRevenue) ; 
+
+var profitCounter = document.getElementById('Profits_counter');
+      var cleanpro =  numberWithCommas(counterPRofict)
+      profitCounter.innerHTML = numberWithCommas(counterPRofict);
+
+
+var dbCounter = document.getElementById('Employees_counter');
+      var cleanepm =  numberWithCommas(counterEmp)
+      dbCounter.innerHTML = cleanepm;
+      
+  
+   
+
+ 
+
+$('.counter').counterUp({
+                delay: 10,
+                time: 1000
+            });
+
+
+
+
+      function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+    }
+  function setRevenueChart(){
+
+
+    var chart = AmCharts.makeChart( "chartdiv", {
+     "type": "serial",
+     "theme": "light",
+     "dataProvider":  revenueData,
+     "gridAboveGraphs": true,
+     "startDuration": 1,
+     "graphs": [ {
+       "balloonText": "<b>Total Revenue by [[label]] Sector</b>: <span style='color:red;'>$[[value]]</span>",
+       "fillAlphas": 0.8,
+       "lineAlpha": 0.2,
+       "type": "column",
+       "valueField": "value"
+     } ],
+     "categoryAxis": {
+   "gridPosition": "start",
+   "labelRotation": 45
+ },"depth3D": 15,
+    "angle": 15,
+     "categoryField": "label",
+
+
+
+   } );
+
+
+  }
+
+
+  function setProfitsChart(){
+
+
+    var chart = AmCharts.makeChart( "profitdiv", {
+     "type": "serial",
+     "theme": "none",
+     "dataProvider":  profitsData,
+     "gridAboveGraphs": true,
+     "startDuration": 1,
+     "graphs": [ {
+       "balloonText": "<b>Total Profits by [[label]] Sector</b>: <span style='color:red;'>$[[value]]</span>",
+       "fillAlphas": 0.8,
+       "lineAlpha": 0.2,
+       "type": "column",
+       "valueField": "value"
+     } ],
+     "categoryAxis": {
+   "gridPosition": "start",
+   "labelRotation": 45
+ },"depth3D": 10,
+     "angle": 15,
+     "categoryField": "label",
+
+
+
+   } );
+
+
+  }
+
+  function setEmptChart(){
+
+    var chart = AmCharts.makeChart( "employeesdiv", {
+     "type": "serial",
+     "theme": "light",
+     "dataProvider":  emptData,
+     "gridAboveGraphs": true,
+     "startDuration": 1,
+     "graphs": [ {
+       "balloonText": "<b>Total Employees by [[label]] Sector</b>: <span style='color:red;'>[[value]]</span>",
+       "fillAlphas": 0.8,
+       "lineAlpha": 0.2,
+
+       "type": "column",
+       "valueField": "value"
+     } ],
+     "valueAxes": [{
+        "stackType": "3d",
+
+    }],
+     "categoryAxis": {
+   "gridPosition": "start",
+   "labelRotation": 45
+ },"depth3D": 15,
+    "angle": 15,
+     "categoryField": "label",
+
+
+
+   } );
+
+
+
+  }
+</script>
+
+
+
+
+
+
+
+
+{% endblock %}
