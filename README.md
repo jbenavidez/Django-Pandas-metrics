@@ -50,5 +50,5 @@ This application  was created using Django and Pandas library, .   UNDER CONSTRU
 
 Download the app and Run
 ```bash
-$ Python manage.py runserver
+$ python manage.py runserver
 ```
