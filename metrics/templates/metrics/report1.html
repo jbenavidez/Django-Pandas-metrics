@@ -11,8 +11,8 @@
             <form role="form" >
                <div class="col-md-12"   style='margin-bottom:10px;margin-top:10px;'>
                   <div class="form-group">
-                     <label for="exampleInputEmail1">Sector:</label>
-                     <select class="form-control" id="sectorID">
+                     <label for="exampleInputEmail1">Sector <span style="color:red;font-size:12px;">(Required)</span>:</label>
+                     <select class="form-control" id="sectorID" required>
                         <option value="" selected="selected">Select Sector</option>
                      </select>
                   </div>
@@ -44,11 +44,12 @@
       <div class="col-md-12">
         <div class=" custom_container" >
            <div class="col-md-12" style='border-bottom: 1px solid #e6ecf5;'>
-              <h4 style='margin: 0; margin-top: 10px;color:#d0343a;     margin-bottom: 10px; '>Data </h4>
+              <h4 style='margin: 0; margin-top: 10px;color:#d0343a;     margin-bottom: 10px; '>Report  </h4>
            </div>
            <div  id="chartdiv" style="width: 100%; height: 362px;" ></div>
         </div>
       </div>
+
         <div class="col-md-12" style='margin-top:20px;'>
           <div class=" custom_container" >
              <div class="col-md-12" style='border-bottom: 1px solid #e6ecf5;'>
