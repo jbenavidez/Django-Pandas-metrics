@@ -28,6 +28,16 @@ def homepage(request):
     return render(request, 'metrics/homepage.html', args_to_template)
 
 
+def report_one(request):
+    args_to_template = {
+
+
+    }
+    return render(request, 'metrics/report1.html', args_to_template)
+
+
+
+
 def load_data():
     sector = pd.read_csv('static/tester_data/fortune1000.csv')
     df = sector.groupby('Sector' )['Revenue','Profits','Employees'].sum()
@@ -75,7 +85,41 @@ class homepageData(APIView):
         data =  the_data
         return Response(data)
 
+   
+
+def load_drowdows():
+    data = pd.read_csv('static/tester_data/fortune1000.csv')
+    sectors = data.groupby('Sector') 
+    final_obj = {}
+    for sector, data in sectors:
+        final_obj[sector] = {} 
+        #GET ALL FOR EACH SECTOR
+        x =  sectors.get_group(sector)
+        #GROUP ALL BY INDUSTRY
+        industry_grouped = x.groupby('Industry') 
+        for industry,data in industry_grouped:
+            final_obj[sector][industry] =[]
+            #GET ALL ROW FOR EACH INDRUSTRY
+            z = industry_grouped.get_group(industry)
+            company_grouped  = z.groupby('Company') 
+            for company,data3 in company_grouped:
+                final_obj[sector][industry].append(company)
 
 
 
 
+
+
+    return final_obj
+
+
+class dropdownData(APIView):
+    authentication_classes = []
+    permission_classes = []
+    #get python Response
+
+    def get(self, request, format=None):
+
+
+        data =   load_drowdows()
+        return Response(data)

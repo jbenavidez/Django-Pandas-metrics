@@ -6,105 +6,7 @@
 {% block layout_content %}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-<style>
-
-  body {
-
-
-}
-
-
-  .isResizable {
-    background-color: #ffffff;
-    margin: 0px auto;
-    padding: 5px;
-    border: 1px solid #d8d8d8;
-    overflow: hidden;
-    /* Not usable in IE */
-    /* resize: both; */
-
-  }
-
-  .custom_container {
-    border-radius: 5px;
-  border: 1px solid #e6ecf5;
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.175);
-  background:white;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-#chartdiv {
-	width		: 100%;
-	height		: 500px;
-	font-size	: 11px;
-}
-
-
-.card-counter{
-    box-shadow: 2px 2px 10px #DADADA;
-    margin: 5px;
-    padding: 20px 10px;
-    background-color: #fff;
-    height: 100px;
-    border-radius: 5px;
-    transition: .3s linear all;
-  }
-
-  .card-counter:hover{
-    box-shadow: 4px 4px 20px #DADADA;
-    transition: .3s linear all;
-  }
-
-  .card-counter.primary{
-    background-color: #007bff;
-    color: #FFF;
-  }
-
-  .card-counter.danger{
-    background-color: #ef5350;
-    color: #FFF;
-  }
-
-  .card-counter.success{
-    background-color: #66bb6a;
-    color: #FFF;
-  }
-
-  .card-counter.info{
-    background-color: #26c6da;
-    color: #FFF;
-  }
-
-  .card-counter i{
-    font-size: 5em;
-    opacity: 0.2;
-  }
-
-  .card-counter .count-numbers{
-    position: absolute;
-    right: 35px;
-    top: 20px;
-    font-size: 32px;
-    display: block;
-  }
-
-  .card-counter .count-name{
-    position: absolute;
-    right: 35px;
-    top: 65px;
-    font-style: italic;
-    text-transform: capitalize;
-    opacity: 0.5;
-    display: block;
-    font-size: 18px;
-  }
-
-  </style>
-
+  <link href="/static/css/style.css" rel="stylesheet">
 
   <div class=" " style='margin-bottom:10%;'>
      <div class=" ">
@@ -145,16 +47,16 @@ body {
        </div>
      </div>
 
-    
+
      <div class="col-md-2">
        <div class="card-counter info custom_container ">
          <i class="fa fa-users"></i>
          <span class="count-numbers counter" id="Employees_counter">0</span>
           <span class="count-name">Employees</span>
-         
+
        </div>
      </div>
-      
+
    </div>
  </div>
 
@@ -220,7 +122,7 @@ var counterindutrity = 0;
          revenueData = data.Revenue;
          profitsData =data.Profits;
          emptData =data.Employees;
-          //set counter 
+          //set counter
 
            counterSector = data.total_sectors;
            counterCompany = data.total_companies;
@@ -240,22 +142,22 @@ var counterindutrity = 0;
   })
 
     function setCounter(){
-      
+
       var sectorCounter = document.getElementById('sector_counter');
-   
+
       sectorCounter.innerHTML = numberWithCommas(counterSector) ;
 
  var companyCounter = document.getElementById('company_counter');
-     
+
       companyCounter.innerHTML = numberWithCommas(counterCompany) ;
 
 var industryCounter = document.getElementById('industry_counter');
-     
+
       industryCounter.innerHTML =  numberWithCommas(counterindutrity) ;
 
 var revenueCounter = document.getElementById('Revenues_counter');
-     
-      revenueCounter.innerHTML = numberWithCommas(counterRevenue) ; 
+
+      revenueCounter.innerHTML = numberWithCommas(counterRevenue) ;
 
 var profitCounter = document.getElementById('Profits_counter');
       var cleanpro =  numberWithCommas(counterPRofict)
@@ -265,11 +167,11 @@ var profitCounter = document.getElementById('Profits_counter');
 var dbCounter = document.getElementById('Employees_counter');
       var cleanepm =  numberWithCommas(counterEmp)
       dbCounter.innerHTML = cleanepm;
-      
-  
-   
 
- 
+
+
+
+
 
 $('.counter').counterUp({
                 delay: 10,

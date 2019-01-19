@@ -1,0 +1,96 @@
+{% extends "default.html" %}
+{% block layout_content %}
+<link href="/static/css/style.css" rel="stylesheet">
+<div class="col-md-3 " >
+   <div class="col-md-12 custom_container " >
+      <div  >
+         <div class="col-md-12" style='border-bottom: 1px solid #e6ecf5;'>
+            <h4 style='margin: 0; margin-top: 10px;color:#d0343a;     margin-bottom: 10px; '>Generate Report </h4>
+         </div>
+         <div class=" " >
+            <form role="form" >
+               <div class="col-md-12"   style='margin-bottom:10px;margin-top:10px;'>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Sector:</label>
+                     <select class="form-control" id="sel1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                     </select>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputPassword1">Industry:</label>
+                     <select class="form-control" id="sel1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                     </select>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputPassword1">Company:</label>
+                     <select class="form-control" id="sel1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="col-md-12" style='border-top: 1px solid #e6ecf5; '>
+                  <div class="" style='margin-bottom:10px;margin-top:10px;'>
+                     <button type="button" name="button" class="btn btn-primary">Get Report</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="col-md-9 " >
+    <div class="row">
+      <div class="col-md-12">
+        <div class=" custom_container" >
+           <div class="col-md-12" style='border-bottom: 1px solid #e6ecf5;'>
+              <h4 style='margin: 0; margin-top: 10px;color:#d0343a;     margin-bottom: 10px; '>Data </h4>
+           </div>
+           <div  id="chartdiv" style="width: 100%; height: 362px;" ></div>
+        </div>
+      </div>
+        <div class="col-md-12" style='margin-top:20px;'>
+          <div class=" custom_container" >
+             <div class="col-md-12" style='border-bottom: 1px solid #e6ecf5;'>
+                <h4 style='margin: 0; margin-top: 10px;color:#d0343a;     margin-bottom: 10px; '>Data </h4>
+             </div>
+             <div  id="chartdiv" style="width: 100%; height: 362px;" ></div>
+          </div>
+        </div>
+      </div>
+</div>
+
+{% endblock %}
+
+
+{% block js_content %}
+<script type="text/javascript">
+  var theEndPointDroprt = '/api/data/report_one/';
+  var tester = 'nope';
+
+
+  $.ajax({
+       method:'GET',
+       url:theEndPointDroprt,
+       success:function(data){
+          console.log('the data' , data)
+
+       },
+       error:function(erro_data){
+          console.log('the error', erro_data)
+        }
+  })
+
+
+</script>
+
+{% endblock %}
